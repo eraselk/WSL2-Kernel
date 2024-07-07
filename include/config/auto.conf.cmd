@@ -1547,25 +1547,22 @@ endif
 ifneq "$(KERNELVERSION)" "6.6.36.3"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(CC)" "clang"
+ifneq "$(CC)" "x86_64-linux-gnu-gcc"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(LD)" "ld.lld"
+ifneq "$(LD)" "x86_64-linux-gnu-ld"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(srctree)" "."
 include/config/auto.conf: FORCE
 endif
-ifneq "$(CLANG_FLAGS)" " --target=x86_64-linux-gnu -fintegrated-as -Werror=unknown-warning-option -Werror=ignored-optimization-argument -Werror=option-ignored -Werror=unused-command-line-argument"
+ifneq "$(CC_VERSION_TEXT)" "x86_64-linux-gnu-gcc (eraselk GCC) 15.0.0 20240707 (experimental)"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(CC_VERSION_TEXT)" "clang version 18.1.8"
+ifneq "$(NM)" "x86_64-linux-gnu-nm"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(NM)" "llvm-nm"
-include/config/auto.conf: FORCE
-endif
-ifneq "$(OBJCOPY)" "llvm-objcopy"
+ifneq "$(OBJCOPY)" "x86_64-linux-gnu-objcopy"
 include/config/auto.conf: FORCE
 endif
 ifneq "$(PAHOLE)" "pahole"
@@ -1580,7 +1577,7 @@ endif
 ifneq "$(SRCARCH)" "x86"
 include/config/auto.conf: FORCE
 endif
-ifneq "$(AR)" "llvm-ar"
+ifneq "$(AR)" "x86_64-linux-gnu-ar"
 include/config/auto.conf: FORCE
 endif
 
